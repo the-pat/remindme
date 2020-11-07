@@ -27,3 +27,5 @@ remindme-*.tar
 /tmp
 
 /.elixir_ls/
+
+/config/config.secret.exs

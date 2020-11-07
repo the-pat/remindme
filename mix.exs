@@ -15,7 +15,7 @@ defmodule Remindme.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {Remindme.Application, []}
+      mod: {Remindme.Bot, []}
     ]
   end
 
@@ -24,6 +24,7 @@ defmodule Remindme.MixProject do
     [
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:alchemy, "~> 0.6.4", hex: :discord_alchemy}
     ]
   end
 end
