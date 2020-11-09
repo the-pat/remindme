@@ -2,19 +2,20 @@ defmodule Remindme.Commands do
   use Alchemy.Cogs
 
   alias Alchemy.Client
+  alias Remindme.Utils
 
   Cogs.def ping do
     Cogs.say("pong!")
   end
 
   Cogs.def remindme(time) do
-    {time, _} = Integer.parse(time)
+    milliseconds = Utils.parse_time(time)
 
     {:ok, channel} = Client.get_channel(message.channel_id)
     {:ok, private_channel} = Client.create_DM(message.author.id)
 
     spawn(fn ->
-      :timer.sleep(:timer.seconds(time))
+      :timer.sleep(milliseconds)
 
       Client.send_message(
         private_channel.id,
