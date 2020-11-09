@@ -3,6 +3,4 @@ import Config
 config :porcelain, driver: Porcelain.Driver.Basic
 
 config :remindme,
-  token: "<YOUR TOKEN HERE>"
-
-import_config "config.secret.exs"
+  token: System.get_env("DISCORD_TOKEN") || "<YOUR TOKEN HERE>"
