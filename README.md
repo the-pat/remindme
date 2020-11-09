@@ -2,6 +2,8 @@
 
 > Reddit's [RemindMeBot](https://github.com/Watchful1/RemindMeBot) in Discord
 
+[Invite me to **your** server ⏰🤖](https://discord.com/api/oauth2/authorize?client_id=774681129898606613&permissions=133120&scope=bot)
+
 ## Commands
 
 - [x] `!remindme 30`: send a reminder in **30 seconds**.
