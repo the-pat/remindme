@@ -10,7 +10,8 @@ defmodule Remindme.Web.Application do
     {port, _} = :web |> Application.fetch_env!(:port) |> Integer.parse()
 
     children = [
-      {Plug.Cowboy, scheme: :http, plug: Remindme.Web.Router, options: [port: port]}
+      {Plug.Cowboy, scheme: :http, plug: Remindme.Web.Router, options: [port: port]},
+      Remindme.Web.Heartbeat
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
