@@ -9,6 +9,7 @@ defmodule Remindme.Bot.Commands do
   - `!remindme h(elp)`: prints this command text
   - `!remindme 30 [(default) second(s) | minute(s) | hour(s) | day(s) | week(s)]`: sends a reminder to the user
       note: longer reminders will not work if the app falls asleep _or_ is restarted
+  - `!ping`: `pong`
 
   Wake up link: https://patrickt-remindme.herokuapp.com/
   """
@@ -36,22 +37,37 @@ defmodule Remindme.Bot.Commands do
 
     milliseconds = Time.parse_time(time, unit)
 
-    {:ok, channel} = Client.get_channel(message.channel_id)
-    {:ok, private_channel} = Client.create_DM(message.author.id)
+    cond do
+      milliseconds < 0 ->
+        Client.send_message(
+          message.channel_id,
+          """
+          Congrats, <@#{message.author.id}>. You broke it.
+          ```erlang
+          ** (ErlangError) Erlang error: :timeout_value
+              (stdlib 3.13.2) timer.erl:152: :timer.sleep/1
+          ```
+          """
+        )
 
-    spawn(fn ->
-      :timer.sleep(milliseconds)
+      true ->
+        {:ok, channel} = Client.get_channel(message.channel_id)
+        {:ok, private_channel} = Client.create_DM(message.author.id)
 
-      Client.send_message(
-        private_channel.id,
-        """
-        <@#{message.author.id}> here's your reminder!
+        spawn(fn ->
+          :timer.sleep(milliseconds)
 
-        https://discord.com/channels/#{channel.guild_id}/#{channel.id}/#{message.id}
-        """
-      )
-    end)
+          Client.send_message(
+            private_channel.id,
+            """
+            <@#{message.author.id}> here's your reminder!
 
-    Cogs.say("<@#{message.author.id}>, no problem!")
+            https://discord.com/channels/#{channel.guild_id}/#{channel.id}/#{message.id}
+            """
+          )
+        end)
+
+        Cogs.say("<@#{message.author.id}>, no problem!")
+    end
   end
 end
