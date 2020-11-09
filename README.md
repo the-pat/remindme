@@ -1,3 +1,5 @@
+**Note: This version of the bot schedules reminders in-memory and will not remember reminders across restarts. Since this bot is hosted in Heroku, it will restart _at least_ once every 24 hours.**
+
 # Remindme
 
 > Reddit's [RemindMeBot](https://github.com/Watchful1/RemindMeBot) in Discord
