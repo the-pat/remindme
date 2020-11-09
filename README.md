@@ -5,7 +5,7 @@
 ## Commands
 
 - [x] `!remindme 30`: send a reminder in **30 seconds**.
-- [x] `!remindme 45 seconds`: send a reminder in **45 seconds**.
+- [ ] `!remindme 45 seconds`: send a reminder in **45 seconds**.
 - [ ] `!remindme 5 minutes`: send a reminder in **5 minutes**.
 - [ ] `!remindme 8 hours`: send a reminder in **8 hours**.
 - [ ] `!remindme 1 day`: send a reminder in **1 day**.
