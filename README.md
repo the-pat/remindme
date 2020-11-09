@@ -5,11 +5,11 @@
 ## Commands
 
 - [x] `!remindme 30`: send a reminder in **30 seconds**.
-- [ ] `!remindme 45 seconds`: send a reminder in **45 seconds**.
-- [ ] `!remindme 5 minutes`: send a reminder in **5 minutes**.
-- [ ] `!remindme 8 hours`: send a reminder in **8 hours**.
-- [ ] `!remindme 1 day`: send a reminder in **1 day**.
-- [ ] `!remindme 2 weeks`: send a reminder in **2 weeks**.
+- [x] `!remindme 45 seconds`: send a reminder in **45 seconds**.
+- [x] `!remindme 5 minutes`: send a reminder in **5 minutes**.
+- [x] `!remindme 8 hours`: send a reminder in **8 hours**.
+- [x] `!remindme 1 day`: send a reminder in **1 day**.
+- [x] `!remindme 2 weeks`: send a reminder in **2 weeks**.
 - [ ] `!remindme one year`: send a reminder in **1 year**.
 
 More commands will be added as requested.

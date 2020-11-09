@@ -1,17 +1,28 @@
 defmodule Remindme.Utils do
-  def parse_time(time) do
+  def parse_time(time, unit) do
     cond do
-      String.contains?(time, "second") ->
-        [seconds | _] = String.split(time)
-        parse_seconds(seconds)
+      String.contains?(unit, "week") ->
+        to_milliseconds(:hours, time) * 24 * 7
+
+      String.contains?(unit, "day") ->
+        to_milliseconds(:hours, time) * 24
+
+      String.contains?(unit, "hour") ->
+        to_milliseconds(:hours, time)
+
+      String.contains?(unit, "minute") ->
+        to_milliseconds(:minutes, time)
+
+      String.contains?(unit, "second") ->
+        to_milliseconds(:seconds, time)
 
       true ->
-        parse_seconds(time)
+        to_milliseconds(:seconds, time)
     end
   end
 
-  defp parse_seconds(seconds) do
-    {seconds, _} = Integer.parse(seconds)
-    :timer.seconds(seconds)
+  defp to_milliseconds(unit, time) do
+    {time, _} = Integer.parse(time)
+    apply(:timer, unit, [time])
   end
 end

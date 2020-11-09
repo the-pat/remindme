@@ -8,8 +8,9 @@ defmodule Remindme.Commands do
     Cogs.say("pong!")
   end
 
-  Cogs.def remindme(time) do
-    milliseconds = Utils.parse_time(time)
+  Cogs.def remindme(_) do
+    ["!remindme", time, unit | _] = String.split(message.content)
+    milliseconds = Utils.parse_time(time, unit)
 
     {:ok, channel} = Client.get_channel(message.channel_id)
     {:ok, private_channel} = Client.create_DM(message.author.id)
