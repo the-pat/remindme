@@ -8,7 +8,6 @@ defmodule Remindme.Web.Application do
   @impl true
   def start(_type, _args) do
     {port, _} = :web |> Application.fetch_env!(:port) |> Integer.parse()
-    IO.inspect(port)
 
     children = [
       {Plug.Cowboy, scheme: :http, plug: Remindme.Web.Router, options: [port: port]}
