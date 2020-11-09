@@ -9,7 +9,14 @@ defmodule Remindme.Bot.Commands do
   end
 
   Cogs.def remindme(_) do
-    ["!remindme", time, unit | _] = String.split(message.content)
+    ["!remindme", time | rest] = String.split(message.content)
+
+    unit =
+      case rest do
+        [unit | _] -> unit
+        _ -> "seconds"
+      end
+
     milliseconds = Time.parse_time(time, unit)
 
     {:ok, channel} = Client.get_channel(message.channel_id)
