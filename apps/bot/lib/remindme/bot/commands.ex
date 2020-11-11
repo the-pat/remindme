@@ -8,10 +8,8 @@ defmodule Remindme.Bot.Commands do
   Commands:
   - `!remindme h(elp)`: prints this command text
   - `!remindme 30 [(default) second(s) | minute(s) | hour(s) | day(s) | week(s)]`: sends a reminder to the user
-      note: longer reminders will not work if the app falls asleep _or_ is restarted
+      _Note: Long running reminders are unreliable at this point. A persistant job store is in progress._
   - `!ping`: `pong`
-
-  Wake up link: https://patrickt-remindme.herokuapp.com/
   """
 
   Cogs.def ping do
