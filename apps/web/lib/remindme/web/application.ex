@@ -11,7 +11,6 @@ defmodule Remindme.Web.Application do
 
     children = [
       {Plug.Cowboy, scheme: :http, plug: Remindme.Web.Router, options: [port: port]}
-      # Remindme.Web.Heartbeat
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

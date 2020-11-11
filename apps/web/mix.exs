@@ -18,13 +18,15 @@ defmodule Remindme.Web.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger, :hackney],
+      extra_applications: [:logger],
       mod: {Remindme.Web.Application, []}
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    [{:plug_cowboy, "~> 2.4"}, {:hackney, "~> 1.16"}]
+    [
+      {:plug_cowboy, "~> 2.4"}
+    ]
   end
 end
