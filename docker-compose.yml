@@ -1,0 +1,13 @@
+version: "3"
+services:
+  db:
+    image: postgres:11-alpine
+    container_name: "postgres-remindme"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-dev:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+volumes:
+  postgres-dev:

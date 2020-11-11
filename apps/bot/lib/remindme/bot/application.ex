@@ -8,6 +8,7 @@ defmodule Remindme.Bot.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      Remindme.Bot.Repo
       # Starts a worker by calling: Remindme.Bot.Worker.start_link(arg)
       # {Remindme.Bot.Worker, arg}
     ]
