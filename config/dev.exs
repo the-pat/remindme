@@ -1,6 +1,6 @@
 import Config
 
-config :bot, Remindme.Bot.Repo,
+config :persistence, Remindme.Persistence.Repo,
   username: "postgres",
   password: "postgres",
   database: "remindme_dev",

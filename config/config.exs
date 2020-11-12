@@ -3,8 +3,15 @@ import Config
 config :porcelain, driver: Porcelain.Driver.Basic
 
 config :bot,
-  ecto_repos: [Remindme.Bot.Repo],
   token: System.get_env("DISCORD_TOKEN")
+
+config :persistence,
+  ecto_repos: [Remindme.Persistence.Repo]
+
+config :persistence, Oban,
+  repo: Remindme.Persistence.Repo,
+  crontab: false,
+  queues: [reminder: 5]
 
 config :web,
   port: System.get_env("PORT")

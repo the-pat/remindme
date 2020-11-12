@@ -15,4 +15,8 @@ defmodule Remindme.Bot do
     use Remindme.Bot.Commands
     run
   end
+
+  def send_reminder(channel_id, content) do
+    Client.send_message(channel_id, content)
+  end
 end
