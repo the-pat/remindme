@@ -15,4 +15,4 @@ config :persistence, Remindme.Persistence.Repo,
 config :persistence, Oban,
   repo: Remindme.Persistence.Repo,
   crontab: false,
-  queues: [reminder: String.to_integer(System.get_env("POOL_SIZE") || "5")]
+  queues: [reminder: String.to_integer(System.get_env("POOL_SIZE") || "5") - 1]
