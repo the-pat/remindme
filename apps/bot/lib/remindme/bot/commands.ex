@@ -1,6 +1,8 @@
 defmodule Remindme.Bot.Commands do
   use Alchemy.Cogs
 
+  require Logger
+
   alias Alchemy.Client
   alias Remindme.Bot.Time
 
@@ -12,18 +14,22 @@ defmodule Remindme.Bot.Commands do
   """
 
   Cogs.def ping do
+    Logger.info(message.content)
     Cogs.say("pong!")
   end
 
   Cogs.def remindme("h") do
+    Logger.info(message.content)
     Cogs.say(@help_text)
   end
 
   Cogs.def remindme("help") do
+    Logger.info(message.content)
     Cogs.say(@help_text)
   end
 
   Cogs.def remindme(_) do
+    Logger.info(message.content)
     ["!remindme", time | rest] = String.split(message.content)
 
     unit =

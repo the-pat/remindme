@@ -7,11 +7,11 @@ defmodule Remindme.Persistence.Worker do
 
   @impl Oban.Worker
   def perform(%Oban.Job{args: %{"channel_id" => channel_id, "content" => content}}) do
-    Logger.info("START #{channel_id}")
+    Logger.info("START")
     # TODO: figure out a better way to handle communication between applications in the
     #   same umbrella project. Maybe send a message to a PID?
     apply(Remindme.Bot, :send_reminder, [channel_id, content])
-    Logger.info("END #{channel_id}")
+    Logger.info("END")
 
     :ok
   end
